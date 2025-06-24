@@ -2,47 +2,62 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
+  <title>711340.xyz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>711340</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
       background: url('startpage.png') no-repeat center center fixed;
       background-size: cover;
-      color: #222;
+      color: #fff;
     }
     nav {
       display: flex;
       justify-content: center;
       gap: 2em;
       padding: 1em;
-      background: rgba(255, 255, 255, 0.7);
+      background: rgba(0, 0, 0, 0.7);
       border-radius: 0 0 1em 1em;
     }
     nav a {
       text-decoration: none;
-      color: #222;
+      color: #ffcc00;
       font-size: 1.1em;
+      font-weight: bold;
     }
-    .infobox {
-      max-width: 700px;
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      max-width: 800px;
       margin: 4em auto;
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       padding: 2em;
       border-radius: 1em;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px); /* für Safari */
-      color: #222;
+      color: #fff;
     }
-    .infobox h1, .infobox h2 {
-      margin-top: 1em;
+    h1, h2, h3 {
+      color: #fff;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
     }
-    .infobox ul {
+    p, li {
+      line-height: 1.6;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+    ul {
       margin-left: 1.2em;
       list-style-type: disc;
+    }
+    @media (max-width: 600px) {
+      main {
+        margin: 1em;
+        padding: 1.5em;
+      }
     }
   </style>
 </head>
@@ -50,10 +65,12 @@
   <nav>
     <a href="index.html">🏠 Start</a>
     <a href="imkerei.html">🐝 Imkerei</a>
-    <a href="kontakt.html">✉️ Kontakt</a>
+    <a href="kontakt.html">📫 Kontakt</a>
   </nav>
 
-  <div id="markdown-content" class="infobox"></div>
+  <main id="markdown-content">
+    <p>Lade Inhalte...</p>
+  </main>
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
@@ -61,6 +78,9 @@
       .then(response => response.text())
       .then(text => {
         document.getElementById('markdown-content').innerHTML = marked.parse(text);
+      })
+      .catch(err => {
+        document.getElementById('markdown-content').innerHTML = "<p>Fehler beim Laden der Inhalte.</p>";
       });
   </script>
 </body>
