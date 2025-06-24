@@ -1,8 +1,7 @@
-<!DOCTYPE html>
-<html lang="de">
+<!DOCTYPE html><html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>Willkommen auf 711340.xyz</title>
+  <title>Herzlich Willkommen</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -22,110 +21,89 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-    }
+    }.content {
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2em;
+  border-radius: 12px;
+  max-width: 90%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
 
-    .content {
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 2em;
-      border-radius: 12px;
-      max-width: 90%;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-      z-index: 2;
-    }
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 0.5em;
+}
 
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 0.5em;
-    }
+p {
+  font-size: 1.2em;
+  margin: 0.5em 0 1.5em;
+}
 
-    p {
-      font-size: 1.2em;
-      margin: 0.5em 0 1.5em;
-    }
+.email-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #ffd700, #ffbb00);
+  color: black;
+  padding: 0.8em 1.6em;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 1.1em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
 
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+.email-button:hover {
+  background: linear-gradient(135deg, #ffcc00, #ffaa00);
+  transform: scale(1.05);
+}
 
-    label {
-      margin-bottom: 0.3em;
-      font-weight: bold;
-    }
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
 
-    input, textarea {
-      width: 100%;
-      max-width: 400px;
-      padding: 0.6em;
-      border: none;
-      border-radius: 6px;
-      margin-bottom: 1em;
-      font-family: 'Poppins', sans-serif;
-      font-size: 1em;
-    }
+  p, input, textarea, button, .email-button {
+    font-size: 1.2em;
+  }
 
-    button {
-      background-color: #ffd700;
-      color: black;
-      padding: 0.7em 1.4em;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      font-size: 1.1em;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.2s ease;
-    }
+  .content {
+    padding: 1.5em;
+  }
+}
 
-    button:hover {
-      background-color: #ffcc00;
-      transform: scale(1.05);
-    }
+.night-overlay {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 30, 60, 0.4);
+  pointer-events: none;
+  z-index: 1;
+  display: none;
+}
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 2em;
-      }
+.firefly {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: yellow;
+  border-radius: 50%;
+  box-shadow: 0 0 8px yellow;
+  animation: float 10s linear infinite;
+  opacity: 0.8;
+  z-index: 1;
+}
 
-      p, input, textarea, button {
-        font-size: 1.2em;
-      }
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+  50% { transform: translate(50px, -100px) scale(1.2); opacity: 1; }
+  100% { transform: translate(-50px, 200px) scale(1); opacity: 0; }
+}
 
-      .content {
-        padding: 1.5em;
-      }
-    }
-
-    .night-overlay {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 30, 60, 0.4);
-      pointer-events: none;
-      z-index: 1;
-      display: none;
-    }
-
-    .firefly {
-      position: absolute;
-      width: 5px;
-      height: 5px;
-      background: yellow;
-      border-radius: 50%;
-      box-shadow: 0 0 8px yellow;
-      animation: float 10s linear infinite;
-      opacity: 0.8;
-      z-index: 1;
-    }
-
-    @keyframes float {
-      0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
-      50% { transform: translate(50px, -100px) scale(1.2); opacity: 1; }
-      100% { transform: translate(-50px, 200px) scale(1); opacity: 0; }
-    }
   </style>
 </head>
 <body>
@@ -144,29 +122,11 @@
         document.body.appendChild(firefly);
       }
     }
-  </script>
-
-  <div class="content">
+  </script>  <div class="content">
     <h1>Hallo!</h1>
     <p>Dies ist meine eigene Domain: <strong>711340.xyz</strong><br>
-    Hier entsteht etwas Schönes – vielleicht über Bienen, Musik oder mich selbst.</p>
+    Hier entsteht etwas Schönes – vielleicht über Bienen, Musik oder mich selbst.</p><a class="email-button" href="mailto:hello@711340.xyz">📬 E-Mail schreiben</a>
 
-    <h2>Kontakt</h2>
-    <p>Wenn du mir schreiben willst, nutze einfach das Formular unten:</p>
-
-    <form action="https://formsubmit.co/hello@711340.xyz" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-      <label for="name">Name</label>
-      <input type="text" name="name" id="name" required>
-
-      <label for="email">E-Mail</label>
-      <input type="email" name="email" id="email" required>
-
-      <label for="message">Nachricht</label>
-      <textarea name="message" id="message" rows="5" required></textarea>
-
-      <button type="submit">Senden</button>
-    </form>
   </div>
 </body>
 </html>
