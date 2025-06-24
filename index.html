@@ -2,132 +2,63 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <title>711340.xyz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet" />
+  <title>711340</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Comfortaa', sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Poppins', sans-serif;
       background: url('startpage.png') no-repeat center center fixed;
       background-size: cover;
-      color: #fff;
+      color: #222;
     }
-
-    header {
-      background: rgba(0, 0, 0, 0.7);
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
       padding: 1em;
-      text-align: center;
+      background: rgba(255, 255, 255, 0.7);
+      border-radius: 0 0 1em 1em;
     }
-
     nav a {
-      margin: 0 1em;
-      color: #ffcc00;
       text-decoration: none;
-      font-weight: bold;
+      color: #222;
+      font-size: 1.1em;
     }
-
-    nav a:hover {
-      text-decoration: underline;
+    .infobox {
+      max-width: 700px;
+      margin: 4em auto;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 2em;
+      border-radius: 1em;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
-
-    main {
-      max-width: 800px;
-      margin: 5em auto;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 2.5em;
-      border-radius: 18px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-      text-align: center;
+    .infobox h1, .infobox h2 {
+      margin-top: 1em;
     }
-
-    #content {
-      text-align: left;
-      color: #fff;
-    }
-
-    @media (max-width: 600px) {
-      main {
-        margin: 2em 1em;
-        padding: 2em;
-      }
-    }
-
-    /* Glühwürmchen */
-    .firefly {
-      position: fixed;
-      width: 4px;
-      height: 4px;
-      background: #ffff99;
-      border-radius: 50%;
-      opacity: 0.8;
-      animation: float 8s infinite ease-in-out;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0) translateX(0); opacity: 0.4; }
-      50% { transform: translateY(-200px) translateX(100px); opacity: 1; }
-      100% { transform: translateY(0) translateX(0); opacity: 0.4; }
-    }
-
-    /* Nachtfilter ab 20 Uhr */
-    .night {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 30, 60, 0.3);
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    main, header, nav {
-      position: relative;
-      z-index: 2;
+    .infobox ul {
+      margin-left: 1.2em;
+      list-style-type: disc;
     }
   </style>
 </head>
 <body>
-  <div id="nightOverlay"></div>
-  <div class="firefly" style="top:20%; left:10%; animation-delay: 0s;"></div>
-  <div class="firefly" style="top:50%; left:30%; animation-delay: 2s;"></div>
-  <div class="firefly" style="top:70%; left:70%; animation-delay: 4s;"></div>
+  <nav>
+    <a href="index.html">🏠 Start</a>
+    <a href="imkerei.html">🐝 Imkerei</a>
+    <a href="kontakt.html">✉️ Kontakt</a>
+  </nav>
 
-  <header>
-    <nav>
-      <a href="index.html">🏠 Start</a>
-      <a href="imkerei.html">🐝 Imkerei</a>
-      <a href="kontakt.html">📫 Kontakt</a>
-    </nav>
-  </header>
+  <div id="markdown-content" class="infobox"></div>
 
-  <main>
-    <div id="content">Lade Inhalte…</div>
-  </main>
-
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
-    // Markdown laden
     fetch('starttext.md')
-      .then(res => res.text())
+      .then(response => response.text())
       .then(text => {
-        const html = text
-          .replace(/^# (.*$)/gim, '<h1>$1</h1>')
-          .replace(/^## (.*$)/gim, '<h2>$1</h2>')
-          .replace(/^### (.*$)/gim, '<h3>$1</h3>')
-          .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
-          .replace(/\*(.*?)\*/gim, '<em>$1</em>')
-          .replace(/\n$/gim, '<br />');
-        document.getElementById('content').innerHTML = html;
+        document.getElementById('markdown-content').innerHTML = marked.parse(text);
       });
-
-    // Nachtmodus aktivieren ab 20 Uhr
-    const hour = new Date().getHours();
-    if (hour >= 20 || hour < 6) {
-      document.getElementById('nightOverlay').className = 'night';
-    }
   </script>
 </body>
 </html>
