@@ -1,139 +1,109 @@
-<!DOCTYPE html><html lang="de">
+<!DOCTYPE html>
+<html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <title>Willkommen auf 711340.xyz</title>
+  <meta charset="UTF-8">
+  <title>Willkommen – 711340.xyz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
-      background-image: url('background.png');
+      background: url('background.png') no-repeat center center fixed;
       background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      height: 100vh;
+      color: #fff;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      color: white;
-      font-family: 'Poppins', sans-serif;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
-      position: relative;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1em;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 1em;
+      color: #ffcc00;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 2em;
+      border-radius: 15px;
+      max-width: 90%;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.2em;
+    }
+    p {
+      font-size: 1.2em;
+      line-height: 1.5;
+    }
+    .contact-button {
+      margin-top: 1.5em;
+      padding: 0.8em 1.5em;
+      font-size: 1.1em;
+      background-color: #ffcc00;
+      border: none;
+      border-radius: 8px;
+      color: #000;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .contact-button:hover {
+      background-color: #e6b800;
+    }
+    .spotify-embed {
+      margin-top: 2em;
+      border-radius: 12px;
       overflow: hidden;
-    }.content {
-  background-color: rgba(0, 0, 0, 0.5);
-  padding: 2em;
-  border-radius: 12px;
-  max-width: 90%;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-  z-index: 2;
-}
+    }
 
-h1 {
-  font-size: 2.5em;
-  margin-bottom: 0.5em;
-}
-
-p {
-  font-size: 1.2em;
-  margin: 0.5em 0 1.5em;
-}
-
-.email-button {
-  display: inline-block;
-  background: linear-gradient(135deg, #ffd700, #ffbb00);
-  color: black;
-  padding: 0.8em 1.6em;
-  border: none;
-  border-radius: 10px;
-  font-weight: bold;
-  font-size: 1.1em;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-}
-
-.email-button:hover {
-  background: linear-gradient(135deg, #ffcc00, #ffaa00);
-  transform: scale(1.05);
-}
-
-iframe.spotify {
-  margin-top: 2em;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
-
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2em;
-  }
-
-  p, input, textarea, button, .email-button {
-    font-size: 1.2em;
-  }
-
-  .content {
-    padding: 1.5em;
-  }
-}
-
-.night-overlay {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 30, 60, 0.4);
-  pointer-events: none;
-  z-index: 1;
-  display: none;
-}
-
-.firefly {
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  background: yellow;
-  border-radius: 50%;
-  box-shadow: 0 0 8px yellow;
-  animation: float 10s linear infinite;
-  opacity: 0.8;
-  z-index: 1;
-}
-
-@keyframes float {
-  0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
-  50% { transform: translate(50px, -100px) scale(1.2); opacity: 1; }
-  100% { transform: translate(-50px, 200px) scale(1); opacity: 0; }
-}
-
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1.1em;
+      }
+      .spotify-embed iframe {
+        width: 100% !important;
+      }
+    }
   </style>
 </head>
 <body>
-  <div class="night-overlay" id="nightOverlay"></div>
-  <script>
-    const hour = new Date().getHours();
-    if (hour >= 20 || hour < 6) {
-      document.getElementById("nightOverlay").style.display = "block";
-      for (let i = 0; i < 20; i++) {
-        const firefly = document.createElement("div");
-        firefly.classList.add("firefly");
-        firefly.style.top = Math.random() * 100 + "%";
-        firefly.style.left = Math.random() * 100 + "%";
-        firefly.style.animationDuration = (8 + Math.random() * 4) + "s";
-        document.body.appendChild(firefly);
-      }
-    }
-  </script>  <div class="content">
+  <header>
+    <nav>
+      <a href="index.html">🏠 Start</a>
+      <a href="imkerei.html">🐝 Imkerei</a>
+      <a href="kontakt.html">📬 Kontakt</a>
+    </nav>
+  </header>
+  <main>
     <h1>Hallo!</h1>
-    <p>Dies ist meine eigene Domain: <strong>711340.xyz</strong><br>
-    Hier entsteht etwas Schönes – vielleicht über Bienen, Musik oder mich selbst.</p><a class="email-button" href="mailto:hello@711340.xyz">📬 E-Mail schreiben</a>
+    <p>Dies ist meine eigene Domain: <strong>711340.xyz</strong></p>
+    <p>Hier entsteht etwas Schönes – vielleicht eine Seite über Bienen, Musik oder mich selbst.</p>
+    <a href="mailto:hello@711340.xyz">
+      <button class="contact-button">📧 E-Mail schreiben</button>
+    </a>
 
-<iframe class="spotify" style="margin-top: 2em;" src="https://open.spotify.com/embed/playlist/0RqGEsdxZSJQVWkpbXJMNh?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-  </div>
+    <div class="spotify-embed">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0RqGEsdxZSJQVWkpbXJMNh?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </main>
 </body>
 </html>
