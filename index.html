@@ -20,6 +20,8 @@
       color: white;
       font-family: 'Poppins', sans-serif;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
     .content {
@@ -28,6 +30,7 @@
       border-radius: 12px;
       max-width: 90%;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+      z-index: 2;
     }
 
     h1 {
@@ -37,24 +40,44 @@
 
     p {
       font-size: 1.2em;
-      margin: 0.5em 0;
+      margin: 0.5em 0 1.5em;
     }
 
-    .button {
-      display: inline-block;
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      margin-bottom: 0.3em;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      max-width: 400px;
+      padding: 0.6em;
+      border: none;
+      border-radius: 6px;
+      margin-bottom: 1em;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1em;
+    }
+
+    button {
       background-color: #ffd700;
       color: black;
       padding: 0.7em 1.4em;
       border: none;
       border-radius: 8px;
       font-weight: bold;
-      text-decoration: none;
-      margin-top: 1.5em;
       font-size: 1.1em;
+      cursor: pointer;
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-    .button:hover {
+    button:hover {
       background-color: #ffcc00;
       transform: scale(1.05);
     }
@@ -64,22 +87,86 @@
         font-size: 2em;
       }
 
-      p, .button {
-        font-size: 1.3em;
+      p, input, textarea, button {
+        font-size: 1.2em;
       }
 
       .content {
         padding: 1.5em;
       }
     }
+
+    .night-overlay {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 30, 60, 0.4);
+      pointer-events: none;
+      z-index: 1;
+      display: none;
+    }
+
+    .firefly {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: yellow;
+      border-radius: 50%;
+      box-shadow: 0 0 8px yellow;
+      animation: float 10s linear infinite;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    @keyframes float {
+      0% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+      50% { transform: translate(50px, -100px) scale(1.2); opacity: 1; }
+      100% { transform: translate(-50px, 200px) scale(1); opacity: 0; }
+    }
   </style>
 </head>
 <body>
+  <div class="night-overlay" id="nightOverlay"></div>
+  <!-- Glühwürmchen -->
+  <script>
+    const hour = new Date().getHours();
+    if (hour >= 20 || hour < 6) {
+      document.getElementById("nightOverlay").style.display = "block";
+      for (let i = 0; i < 20; i++) {
+        const firefly = document.createElement("div");
+        firefly.classList.add("firefly");
+        firefly.style.top = Math.random() * 100 + "%";
+        firefly.style.left = Math.random() * 100 + "%";
+        firefly.style.animationDuration = (8 + Math.random() * 4) + "s";
+        document.body.appendChild(firefly);
+      }
+    }
+  </script>
+
   <div class="content">
     <h1>Hallo!</h1>
-    <p>Herzlich Willkommen auf <strong>711340.xyz</strong></p>
-    <p>Hier entsteht etwas Schönes – vielleicht eine Seite über Bienen, Musik oder mich selbst.</p>
-    <a href="mailto:hello@711340.xyz" class="button">E-Mail schreiben</a>
+    <p>Dies ist meine eigene Domain: <strong>711340.xyz</strong><br>
+    Hier entsteht etwas Schönes – vielleicht über Bienen, Musik oder mich selbst.</p>
+
+    <h2>Kontakt</h2>
+    <p>Wenn du mir schreiben willst, nutze einfach das Formular unten:</p>
+
+    <form action="https://formsubmit.co/hello@711340.xyz" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" required>
+
+      <label for="email">E-Mail</label>
+      <input type="email" name="email" id="email" required>
+
+      <label for="message">Nachricht</label>
+      <textarea name="message" id="message" rows="5" required></textarea>
+
+      <button type="submit">Senden</button>
+    </form>
   </div>
 </body>
 </html>
