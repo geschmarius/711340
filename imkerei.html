@@ -7,37 +7,62 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 0;
+      font-family: 'Poppins', sans-serif;
       background: url('meadow.png') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
+      position: relative;
+      overflow-x: hidden;
     }
-    header {
-      background: rgba(0, 0, 0, 0.7);
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent);
+      animation: pulse 6s ease-in-out infinite;
+      z-index: -1;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.4; }
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
       padding: 1em;
-      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 0 0 1em 1em;
     }
     nav a {
-      margin: 0 1em;
-      color: #ffcc00;
       text-decoration: none;
+      color: #ffcc00;
+      font-size: 1.1em;
       font-weight: bold;
     }
     nav a:hover {
       text-decoration: underline;
     }
+    nav a.active {
+      color: #fff;
+      text-decoration: underline;
+    }
     main {
       max-width: 800px;
-      margin: 2em auto;
+      margin: 4em auto;
       background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       padding: 2em;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      border-radius: 1em;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       color: #fff;
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
     }
     h1, h2, h3 {
       color: #fff;
@@ -45,8 +70,24 @@
     }
     p, li {
       line-height: 1.6;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    }
+    ul {
+      margin-left: 1.2em;
+      list-style-type: disc;
+    }
+    footer {
+      text-align: center;
+      margin: 3em 0 1em 0;
+      font-size: 0.9em;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
     }
     @media (max-width: 600px) {
+      body {
+        font-size: 1.05em;
+        line-height: 1.7;
+      }
       main {
         margin: 1em;
         padding: 1.5em;
@@ -55,18 +96,20 @@
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html">🏠 Start</a>
-      <a href="imkerei.html">🐝 Imkerei</a>
-      <a href="kontakt.html">📫 Kontakt</a>
-    </nav>
-  </header>
+  <nav>
+    <a href="index.html">🏠 Start</a>
+    <a href="imkerei.html" class="active">🐝 Imkerei</a>
+    <a href="kontakt.html">📫 Kontakt</a>
+  </nav>
+
   <main id="content">
     <p>Lade Inhalte...</p>
   </main>
 
-  <!-- Marked.js (für Markdown → HTML Umwandlung) -->
+  <footer>
+    © <span id="year"></span> – 711340.xyz
+  </footer>
+
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
     fetch('imkerei.md')
@@ -77,6 +120,7 @@
       .catch(err => {
         document.getElementById('content').innerHTML = "<p>Fehler beim Laden der Inhalte.</p>";
       });
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
