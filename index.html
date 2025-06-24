@@ -4,16 +4,15 @@
   <meta charset="UTF-8" />
   <title>711340.xyz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Comfortaa', sans-serif;
       margin: 0;
       padding: 0;
       background: url('startpage.png') no-repeat center center fixed;
       background-size: cover;
-      color: white;
-      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+      color: #fff;
     }
     header {
       background: rgba(0, 0, 0, 0.7);
@@ -30,45 +29,32 @@
       text-decoration: underline;
     }
     main {
-      max-width: 800px;
-      margin: 3em auto;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 2em;
-      border-radius: 12px;
+      max-width: 700px;
+      margin: 5em auto;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 2.5em;
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      text-align: center;
     }
     h1 {
       font-size: 2.5em;
-      margin-bottom: 0.3em;
-    }
-    p {
-      font-size: 1.2em;
-      line-height: 1.6;
+      color: #fff;
+      margin: 0;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
     }
     .spotify {
-      margin-top: 2em;
-      text-align: center;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 2em;
-      padding: 0.8em 1.5em;
-      background: #ffcc00;
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-    .btn:hover {
-      background: #e6b800;
+      margin-top: 2.5em;
     }
     @media (max-width: 600px) {
+      main {
+        margin: 2em 1em;
+        padding: 2em;
+      }
       h1 {
         font-size: 2em;
-      }
-      p {
-        font-size: 1.1em;
       }
     }
   </style>
@@ -82,9 +68,7 @@
     </nav>
   </header>
   <main>
-    <h1>Herzlich Wilkommen</h1>
-    <p>bei: <strong>711340.xyz</strong></p>
-    <p>Hier entsteht etwas Schönes – vielleicht eine Seite über Bienen, Musik oder mich selbst.</p>
+    <h1>Herzlich willkommen bei 711340</h1>
 
     <div class="spotify">
       <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0RqGEsdxZSJQVWkpbXJMNh?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
