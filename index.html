@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Willkommen auf 711340.xyz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
@@ -20,18 +21,45 @@
       font-family: 'Poppins', sans-serif;
       text-align: center;
     }
+
     .content {
       background-color: rgba(0, 0, 0, 0.5);
       padding: 2em;
       border-radius: 12px;
+      max-width: 90%;
     }
+
+    h1 {
+      font-size: 2.5em;
+    }
+
+    p, h2 {
+      font-size: 1.2em;
+    }
+
     a.email-link {
       color: #ffd700;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1.2em;
     }
+
     a.email-link:hover {
       text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      p, h2, a.email-link {
+        font-size: 1.4em;
+      }
+
+      .content {
+        padding: 1.5em;
+      }
     }
   </style>
 </head>
@@ -41,7 +69,7 @@
     <p>Dies ist meine eigene Domain: <strong>711340.xyz</strong></p>
     <p>Hier entsteht etwas Schönes – vielleicht eine Seite über Bienen, Musik oder mich selbst.</p>
     <h2>Kontakt</h2>
-    <p><a href="mailto:marius@711340.xyz" class="email-link">marius@711340.xyz</a></p>
+    <p><a href="mailto:hello@711340.xyz" class="email-link">hello@711340.xyz</a></p>
   </div>
 </body>
 </html>
