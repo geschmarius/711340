@@ -1,6 +1,6 @@
 # 🐝 Willkommen bei **711340**
 
-Diese Seite beschäftigt sich mit Bienen und dem Imkern – einem Hobby, das mir mit der Zeit sehr ans Herz gewachsen ist.  
+Diese Seite beschäftigt sich mit Bienen und dem Imkern – einem Hobby, das mir mit der Zeit immer mehr ans Herz wächst.  
 Mich interessiert, wie ein Bienenvolk funktioniert, wie sich Natur beobachten und verstehen lässt – ganz ohne große Worte, einfach durch genaues Hinschauen.
 
 ---
