@@ -13,8 +13,6 @@
       background: url('startpage.png') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
-      position: relative;
-      overflow: hidden;
     }
 
     header {
@@ -35,7 +33,7 @@
     }
 
     main {
-      max-width: 700px;
+      max-width: 800px;
       margin: 5em auto;
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(12px);
@@ -44,67 +42,11 @@
       border-radius: 18px;
       box-shadow: 0 8px 30px rgba(0,0,0,0.25);
       text-align: center;
-      z-index: 2;
-      position: relative;
     }
 
-    h1 {
-      font-size: 2.5em;
+    #content {
+      text-align: left;
       color: #fff;
-      margin: 0;
-      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
-    }
-
-    .spotify {
-      margin-top: 2.5em;
-    }
-
-    /* Nachtfilter */
-    #night-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 32, 0.3);
-      backdrop-filter: hue-rotate(20deg) brightness(0.8);
-      z-index: 1;
-      pointer-events: none;
-      display: none;
-    }
-
-    /* Glühwürmchen */
-    .firefly {
-      position: fixed;
-      width: 8px;
-      height: 8px;
-      background: #ffffcc;
-      border-radius: 50%;
-      box-shadow: 0 0 8px 4px #ffff99;
-      opacity: 0.8;
-      animation: float 10s linear infinite, blink 2s ease-in-out infinite alternate;
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    @keyframes float {
-      0% {
-        transform: translateY(100vh) translateX(0);
-      }
-      100% {
-        transform: translateY(-10vh) translateX(50vw);
-      }
-    }
-
-    @keyframes blink {
-      0%, 100% {
-        opacity: 0.2;
-        box-shadow: 0 0 5px 2px #ffff99;
-      }
-      50% {
-        opacity: 1;
-        box-shadow: 0 0 10px 5px #ffffcc;
-      }
     }
 
     @media (max-width: 600px) {
@@ -112,36 +54,47 @@
         margin: 2em 1em;
         padding: 2em;
       }
-      h1 {
-        font-size: 2em;
-      }
+    }
+
+    /* Glühwürmchen */
+    .firefly {
+      position: fixed;
+      width: 4px;
+      height: 4px;
+      background: #ffff99;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: float 8s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0) translateX(0); opacity: 0.4; }
+      50% { transform: translateY(-200px) translateX(100px); opacity: 1; }
+      100% { transform: translateY(0) translateX(0); opacity: 0.4; }
+    }
+
+    /* Nachtfilter ab 20 Uhr */
+    .night {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 30, 60, 0.3);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    main, header, nav {
+      position: relative;
+      z-index: 2;
     }
   </style>
 </head>
 <body>
-  <div id="night-overlay"></div>
-
-  <!-- Glühwürmchen-Container -->
-  <script>
-    function isNightTime() {
-      const hour = new Date().getHours();
-      return hour >= 20 || hour < 6;
-    }
-
-    if (isNightTime()) {
-      document.getElementById("night-overlay").style.display = "block";
-
-      for (let i = 0; i < 20; i++) {
-        const firefly = document.createElement("div");
-        firefly.classList.add("firefly");
-        firefly.style.left = Math.random() * 100 + "vw";
-        firefly.style.top = Math.random() * 100 + "vh";
-        firefly.style.animationDelay = (Math.random() * 5) + "s";
-        firefly.style.animationDuration = (8 + Math.random() * 4) + "s";
-        document.body.appendChild(firefly);
-      }
-    }
-  </script>
+  <div id="nightOverlay"></div>
+  <div class="firefly" style="top:20%; left:10%; animation-delay: 0s;"></div>
+  <div class="firefly" style="top:50%; left:30%; animation-delay: 2s;"></div>
+  <div class="firefly" style="top:70%; left:70%; animation-delay: 4s;"></div>
 
   <header>
     <nav>
@@ -152,11 +105,29 @@
   </header>
 
   <main>
-    <h1>Herzlich willkommen bei 711340</h1>
-
-    <div class="spotify">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0RqGEsdxZSJQVWkpbXJMNh?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture" loading="lazy"></iframe>
-    </div>
+    <div id="content">Lade Inhalte…</div>
   </main>
+
+  <script>
+    // Markdown laden
+    fetch('starttext.md')
+      .then(res => res.text())
+      .then(text => {
+        const html = text
+          .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+          .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+          .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+          .replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>')
+          .replace(/\*(.*?)\*/gim, '<em>$1</em>')
+          .replace(/\n$/gim, '<br />');
+        document.getElementById('content').innerHTML = html;
+      });
+
+    // Nachtmodus aktivieren ab 20 Uhr
+    const hour = new Date().getHours();
+    if (hour >= 20 || hour < 6) {
+      document.getElementById('nightOverlay').className = 'night';
+    }
+  </script>
 </body>
 </html>
