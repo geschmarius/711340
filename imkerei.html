@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Imkerei – 711340.xyz</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Comfortaa', sans-serif;
       margin: 0;
       padding: 0;
       background: url('meadow.png') no-repeat center center fixed;
       background-size: cover;
-      color: #333;
+      color: #fff;
     }
     header {
       background: rgba(0, 0, 0, 0.7);
-      color: white;
       padding: 1em;
       text-align: center;
     }
@@ -31,25 +30,30 @@
     }
     main {
       max-width: 800px;
-      margin: 2em auto;
-      background: rgba(255, 255, 255, 0.9);
-      padding: 2em;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      margin: 5em auto;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 2.5em;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
     }
     h1 {
-      color: #222;
+      color: #fff;
+      font-size: 2.2em;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
     }
-    p {
-      line-height: 1.6;
+    #content {
+      color: #fff;
+      line-height: 1.7;
     }
-    ul {
-      padding-left: 1.2em;
-    }
-    @media (max-width: 768px) {
+    @media (max-width: 600px) {
       main {
-        margin: 1em;
-        padding: 1.5em;
+        margin: 2em 1em;
+        padding: 2em;
+      }
+      h1 {
+        font-size: 1.8em;
       }
     }
   </style>
@@ -59,26 +63,29 @@
     <nav>
       <a href="index.html">🏠 Start</a>
       <a href="imkerei.html">🐝 Imkerei</a>
-      <a href="kontakt.html">📬 Kontakt</a>
+      <a href="kontakt.html">📫 Kontakt</a>
     </nav>
   </header>
   <main>
     <h1>Imkerei</h1>
-    <p>Willkommen in meinem kleinen Bereich zur Bienenhaltung. Ich bin Jungimker und möchte hier meine Erfahrungen, Beobachtungen und Gedanken rund um Honigbienen teilen.</p>
-
-    <h2>Warum Bienen?</h2>
-    <p>Bienen faszinieren mich – ihre Organisation, ihre Bedeutung für die Natur, ihr Fleiß und ihre Sanftheit. Wer sich einmal länger mit einem Bienenvolk beschäftigt hat, sieht die Welt anders.</p>
-
-    <h2>Meine Anfänge</h2>
-    <p>Ich habe mit einem Honigkurs begonnen und bin regelmäßig an unserem Lehrbienenstand. Noch habe ich kein eigenes Volk, aber ich möchte gut vorbereitet sein – für die Bienen und für mich.</p>
-
-    <h2>Was hier noch kommt</h2>
-    <ul>
-      <li>Die Rolle der Königin, Arbeiterinnen & Drohnen</li>
-      <li>Was ist Varroa und wie schützt man das Volk?</li>
-      <li>Honig, Wachs & Propolis – Gaben des Stocks</li>
-      <li>Imkern im Einklang mit der Natur</li>
-    </ul>
+    <div id="content">Lade Inhalte...</div>
   </main>
+
+  <script>
+    fetch('imkerei.txt')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Text konnte nicht geladen werden');
+        }
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById('content').textContent = data;
+      })
+      .catch(error => {
+        document.getElementById('content').textContent = 'Fehler beim Laden des Inhalts.';
+        console.error(error);
+      });
+  </script>
 </body>
 </html>
