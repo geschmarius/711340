@@ -19,7 +19,9 @@ Vielleicht wird daraus mit der Zeit ein kleiner Ort für Neugier, Austausch und 
 ## 📬 Kontakt
 
 Fragen, Gedanken oder einfach nur ein Gruß?  
-**hello@711340.xyz**  
+
+***hello@711340.xyz***
+
 Ich freue mich über Nachrichten.
 
 ---
