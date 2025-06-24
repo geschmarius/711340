@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <title>Imkerei – 711340.xyz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     body {
-      font-family: 'Comfortaa', sans-serif;
+      font-family: 'Poppins', sans-serif;
       margin: 0;
       padding: 0;
       background: url('meadow.png') no-repeat center center fixed;
@@ -30,30 +30,26 @@
     }
     main {
       max-width: 800px;
-      margin: 5em auto;
-      background: rgba(255, 255, 255, 0.1);
+      margin: 2em auto;
+      background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
-      padding: 2.5em;
+      padding: 2em;
       border-radius: 16px;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-    }
-    h1 {
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
       color: #fff;
-      font-size: 2.2em;
-      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
     }
-    #content {
+    h1, h2, h3 {
       color: #fff;
-      line-height: 1.7;
+      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
+    }
+    p, li {
+      line-height: 1.6;
     }
     @media (max-width: 600px) {
       main {
-        margin: 2em 1em;
-        padding: 2em;
-      }
-      h1 {
-        font-size: 1.8em;
+        margin: 1em;
+        padding: 1.5em;
       }
     }
   </style>
@@ -66,25 +62,20 @@
       <a href="kontakt.html">📫 Kontakt</a>
     </nav>
   </header>
-  <main>
-    <h1>Imkerei</h1>
-    <div id="content">Lade Inhalte...</div>
+  <main id="content">
+    <p>Lade Inhalte...</p>
   </main>
 
+  <!-- Marked.js (für Markdown → HTML Umwandlung) -->
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
-    fetch('imkerei.txt')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Text konnte nicht geladen werden');
-        }
-        return response.text();
+    fetch('imkerei.md')
+      .then(res => res.text())
+      .then(text => {
+        document.getElementById('content').innerHTML = marked.parse(text);
       })
-      .then(data => {
-        document.getElementById('content').textContent = data;
-      })
-      .catch(error => {
-        document.getElementById('content').textContent = 'Fehler beim Laden des Inhalts.';
-        console.error(error);
+      .catch(err => {
+        document.getElementById('content').innerHTML = "<p>Fehler beim Laden der Inhalte.</p>";
       });
   </script>
 </body>
