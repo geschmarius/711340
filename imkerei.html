@@ -9,12 +9,13 @@
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 2em;
-      background: #f5f5f5;
+      padding: 0;
+      background: url('meadow.png') no-repeat center center fixed;
+      background-size: cover;
       color: #333;
     }
     header {
-      background: #222;
+      background: rgba(0, 0, 0, 0.7);
       color: white;
       padding: 1em;
       text-align: center;
@@ -31,10 +32,10 @@
     main {
       max-width: 800px;
       margin: 2em auto;
-      background: white;
+      background: rgba(255, 255, 255, 0.9);
       padding: 2em;
       border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
     }
     h1 {
       color: #222;
@@ -42,10 +43,14 @@
     p {
       line-height: 1.6;
     }
-    em {
-      display: block;
-      margin-top: 1em;
-      color: #666;
+    ul {
+      padding-left: 1.2em;
+    }
+    @media (max-width: 768px) {
+      main {
+        margin: 1em;
+        padding: 1.5em;
+      }
     }
   </style>
 </head>
@@ -60,8 +65,6 @@
   <main>
     <h1>Imkerei</h1>
     <p>Willkommen in meinem kleinen Bereich zur Bienenhaltung. Ich bin Jungimker und möchte hier meine Erfahrungen, Beobachtungen und Gedanken rund um Honigbienen teilen.</p>
-
-    <em>Hier entsteht bald eine Sammlung kleiner Texte zu meinen Bienen, zur Natur und zum Imkern im Einklang mit den Jahreszeiten.</em>
 
     <h2>Warum Bienen?</h2>
     <p>Bienen faszinieren mich – ihre Organisation, ihre Bedeutung für die Natur, ihr Fleiß und ihre Sanftheit. Wer sich einmal länger mit einem Bienenvolk beschäftigt hat, sieht die Welt anders.</p>
