@@ -12,7 +12,24 @@
       background: url('startpage.png') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
+      position: relative;
+      overflow-x: hidden;
     }
+
+    /* 🌕 Lichtspiel-Effekt im Hintergrund */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent);
+      animation: pulse 6s ease-in-out infinite;
+      z-index: -1;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 0.4; }
+    }
+
     nav {
       display: flex;
       justify-content: center;
@@ -30,6 +47,11 @@
     nav a:hover {
       text-decoration: underline;
     }
+    nav a.active {
+      color: #fff;
+      text-decoration: underline;
+    }
+
     main {
       max-width: 800px;
       margin: 4em auto;
@@ -40,24 +62,47 @@
       border-radius: 1em;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
       color: #fff;
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
     }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
     h1, h2, h3 {
       color: #fff;
       text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
     }
+
     p, li {
       line-height: 1.6;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
     }
+
     ul {
       margin-left: 1.2em;
       list-style-type: disc;
     }
+
     a[href^="mailto:"] {
       color: #fff;
       text-decoration: underline;
     }
+
+    footer {
+      text-align: center;
+      margin: 3em 0 1em 0;
+      font-size: 0.9em;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+
     @media (max-width: 600px) {
+      body {
+        font-size: 1.05em;
+        line-height: 1.7;
+      }
       main {
         margin: 1em;
         padding: 1.5em;
@@ -67,7 +112,7 @@
 </head>
 <body>
   <nav>
-    <a href="index.html">🏠 Start</a>
+    <a href="index.html" class="active">🏠 Start</a>
     <a href="imkerei.html">🐝 Imkerei</a>
     <a href="kontakt.html">📫 Kontakt</a>
   </nav>
@@ -75,6 +120,10 @@
   <main id="markdown-content">
     <p>Lade Inhalte...</p>
   </main>
+
+  <footer>
+    © <span id="year"></span> – 711340.xyz
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <script>
@@ -86,6 +135,9 @@
       .catch(err => {
         document.getElementById('markdown-content').innerHTML = "<p>Fehler beim Laden der Inhalte.</p>";
       });
+
+    // 📅 Automatisch aktuelles Jahr anzeigen
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
