@@ -16,7 +16,7 @@
       justify-content: center;
       z-index: 9999;
       opacity: 1;
-      transition: opacity 1s ease;
+      transition: opacity 1s ease, transform 1s ease;
     }
     #intro img {
       max-width: 80%;
@@ -29,6 +29,7 @@
     }
     body.intro-hidden #intro {
       opacity: 0;
+      transform: translateY(-30px);
       pointer-events: none;
     }
 
@@ -128,7 +129,7 @@
 </head>
 <body>
   <!-- INTRO -->
-  <div id="intro" onclick="document.body.classList.add('intro-hidden')">
+  <div id="intro">
     <img src="711340_logo_inverted.png" alt="Logo 711340" />
   </div>
 
@@ -163,6 +164,15 @@
       });
 
     document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Automatische Intro-Ausblendung mit Fade-Out -->
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        document.body.classList.add("intro-hidden");
+      }, 1000);
+    });
   </script>
 
   <footer style="font-size: 0.7em; color: #999; text-align: center; padding: 2em 1em;">
