@@ -1,29 +1,19 @@
-# 🐝 Willkommen bei **711340**
+## Willkommen bei 711340
 
-Diese Seite beschäftigt sich mit Bienen und dem Imkern – einem Hobby, das mir mit der Zeit immer mehr ans Herz wächst.  
-Mich interessiert, wie ein Bienenvolk funktioniert, wie sich Natur beobachten und verstehen lässt – ganz ohne große Worte, einfach durch genaues Hinschauen.
+Diese Seite ist ein Ort für Geschichten –  
+von Menschen, Momenten und manchmal auch von Bienen. 🐝
 
----
+Ich schreibe: für die Zeitung, für andere, für mich.  
+Reportagen, Reden, Porträts – mit Gefühl, mit Neugier, mit Blick fürs Wesentliche.  
+Denn Sprache kann verbinden, erinnern, berühren.
 
-## 🌼 Was hier entsteht
+Und dann sind da noch die Bienen.  
+Sie erinnern mich an Achtsamkeit, an Gemeinschaft,  
+an das Große im Kleinen.
 
-Nach und nach sammle ich hier Infos, Texte und Gedanken rund um die Bienenhaltung:  
-- Beobachtungen aus dem Bienenstock  
-- Wissenswertes über Honig, Königin & Co.  
-- Eigene Artikel und kleine Texte zwischendurch  
+Die Imkerei ist Teil meines Weges – genau wie das Schreiben.
 
-Vielleicht wird daraus mit der Zeit ein kleiner Ort für Neugier, Austausch und Stillstand – im besten Sinne.
+711340.xyz verbindet beides – Natur 🌿 und Sprache, Herz und Handwerk.  
+Ein persönliches Projekt, das mit mir lebt und sich weiterentwickelt.
 
----
-
-## 📬 Kontakt
-
-Fragen, Gedanken oder einfach nur ein Gruß?  
-
-***hello@711340.xyz***
-
-Ich freue mich über Nachrichten.
-
----
-
-🖋️ *Diese Seite ist ein persönliches Projekt – ruhig, langsam wachsend, wie vieles in der Natur.*
+Schön, dass du da bist.
