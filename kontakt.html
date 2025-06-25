@@ -1,137 +1,82 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kontakt – 711340.xyz</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
-      background: url('startpage.png') no-repeat center center fixed;
+      background-image: url('meadow.png');
       background-size: cover;
+      background-position: center;
       color: #fff;
-      position: relative;
-      overflow-x: hidden;
-    }
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(255,255,255,0.05), transparent);
-      animation: pulse 6s ease-in-out infinite;
-      z-index: -1;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 0.2; }
-      50% { opacity: 0.4; }
+      text-shadow: 1px 1px 3px #000;
     }
     nav {
       display: flex;
       justify-content: center;
-      gap: 2em;
+      gap: 1em;
       padding: 1em;
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 0 0 1em 1em;
+      background: rgba(0,0,0,0.5);
     }
     nav a {
+      color: #fff;
       text-decoration: none;
-      color: #ffcc00;
-      font-size: 1.1em;
       font-weight: bold;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    nav a.active {
-      color: #fff;
-      text-decoration: underline;
-    }
-    main {
-      max-width: 800px;
+    .box {
+      background: rgba(0,0,0,0.4);
+      max-width: 600px;
       margin: 4em auto;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       padding: 2em;
-      border-radius: 1em;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
       text-align: center;
-      opacity: 0;
-      animation: fadeIn 1.2s ease forwards;
     }
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
-    h1 {
-      text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
-    }
-    a.button {
-      display: inline-block;
-      margin-top: 2em;
-      padding: 1em 2em;
-      background: #ffcc00;
+    .contact-button {
+      background-color: #fff;
       color: #000;
-      border-radius: 8px;
-      text-decoration: none;
+      padding: 1em 2em;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2em;
       font-weight: bold;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    }
-    a.button:hover {
-      background: #fff04d;
+      text-decoration: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
     }
     footer {
+      font-size: 0.7em;
+      color: #999;
       text-align: center;
-      margin: 3em 0 1em 0;
-      font-size: 0.9em;
-      color: #fff;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
-    }
-    @media (max-width: 600px) {
-      body {
-        font-size: 1.05em;
-        line-height: 1.7;
-      }
-      main {
-        margin: 1em;
-        padding: 1.5em;
-      }
+      padding: 2em 1em;
     }
   </style>
 </head>
 <body>
+
   <nav>
     <a href="index.html">🏠 Start</a>
-    <a href="imkerei.html">🐝 Imkerei</a>
+    <a href="imkerei.html">🍯 Imkerei</a>
     <a href="texte.html">📝 Texte & Reden</a>
-    <a href="kontakt.html" class="active">📫 Kontakt</a>
+    <a href="kontakt.html">✉️ Kontakt</a>
   </nav>
 
-  <main>
+  <div class="box">
     <h1>Kontakt</h1>
-    <p>Du möchtest etwas fragen oder einfach Hallo sagen?</p>
-    <a class="button" href="mailto:hello@711340.xyz">✉️ Schreib mir</a>
-  </main>
+    <p>
+      <a class="contact-button" href="mailto:hello@711340.xyz">E-Mail schreiben</a>
+    </p>
+  </div>
 
   <footer>
-    © <span id="year"></span> – 711340.xyz
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-
-  <footer style="font-size: 0.7em; color: #999; text-align: center; padding: 2em 1em;">
     <p>Diese Website sammelt keine personenbezogenen Daten. Für eingebettete Inhalte (z. B. Spotify) können Dritte Daten erheben. Kontaktaufnahme ist freiwillig über E-Mail möglich.</p>
     <p>Verantwortlich für den Inhalt gemäß § 55 Abs. 2 RStV:<br>
     Marius Wick<br>
     E-Mail: <a href="mailto:hello@711340.xyz" style="color: #999;">hello@711340.xyz</a></p>
   </footer>
-
-</body>
-</html>
 
 </body>
 </html>
