@@ -1,5 +1,6 @@
 ## Texte & Reden  
-**Worte, die berühren. Texte, die bleiben.**
+**Worte, die berühren. 
+Texte, die bleiben.**
 
 Ich schreibe – aus Überzeugung und mit Herz.  
 Ob persönliche Reden, journalistische Texte oder individuelle Auftragsarbeiten:  
