@@ -15,8 +15,6 @@
       position: relative;
       overflow-x: hidden;
     }
-
-    /* 🌕 Lichtspiel-Effekt im Hintergrund */
     body::after {
       content: '';
       position: fixed;
@@ -29,7 +27,6 @@
       0%, 100% { opacity: 0.2; }
       50% { opacity: 0.4; }
     }
-
     nav {
       display: flex;
       justify-content: center;
@@ -51,7 +48,6 @@
       color: #fff;
       text-decoration: underline;
     }
-
     main {
       max-width: 800px;
       margin: 4em auto;
@@ -65,31 +61,25 @@
       opacity: 0;
       animation: fadeIn 1.2s ease forwards;
     }
-
     @keyframes fadeIn {
       to { opacity: 1; }
     }
-
     h1, h2, h3 {
       color: #fff;
       text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.8);
     }
-
     p, li {
       line-height: 1.6;
       text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
     }
-
     ul {
       margin-left: 1.2em;
       list-style-type: disc;
     }
-
     a[href^="mailto:"] {
       color: #fff;
       text-decoration: underline;
     }
-
     footer {
       text-align: center;
       margin: 3em 0 1em 0;
@@ -97,7 +87,6 @@
       color: #fff;
       text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
     }
-
     @media (max-width: 600px) {
       body {
         font-size: 1.05em;
@@ -114,6 +103,7 @@
   <nav>
     <a href="index.html" class="active">🏠 Start</a>
     <a href="imkerei.html">🐝 Imkerei</a>
+    <a href="texte.html">📝 Texte & Reden</a>
     <a href="kontakt.html">📫 Kontakt</a>
   </nav>
 
@@ -136,7 +126,6 @@
         document.getElementById('markdown-content').innerHTML = "<p>Fehler beim Laden der Inhalte.</p>";
       });
 
-    // 📅 Automatisch aktuelles Jahr anzeigen
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
