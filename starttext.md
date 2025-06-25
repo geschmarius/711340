@@ -13,7 +13,7 @@ an das Große im Kleinen.
 
 Die Imkerei ist Teil meines Weges – genau wie das Schreiben.
 
-711340.xyz verbindet beides – Natur 🌿 und Sprache, Herz und Handwerk.  
+711340 verbindet beides – Natur 🌿 und Sprache, Herz und Handwerk.  
 Ein persönliches Projekt, das mit mir lebt und sich weiterentwickelt.
 
 Schön, dass du da bist.
