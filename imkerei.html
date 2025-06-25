@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Imkerei – 711340.xyz</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     body {
       margin: 0;
@@ -52,10 +53,8 @@
     <a href="kontakt.html">✉️ Kontakt</a>
   </nav>
 
-  <div class="box">
-    <h1>Imkerei</h1>
-    <p>Hier entsteht eine eigene Seite zur Bienenhaltung und Imkerei.</p>
-    <p><em>Under Construction 🛠️</em></p>
+  <div class="box" id="content">
+    <p>Lade Inhalte…</p>
   </div>
 
   <footer>
@@ -64,6 +63,17 @@
     Marius Wick<br>
     E-Mail: <a href="mailto:hello@711340.xyz" style="color: #999;">hello@711340.xyz</a></p>
   </footer>
+
+  <script>
+    fetch('imkerei.md')
+      .then(res => res.text())
+      .then(text => {
+        document.getElementById('content').innerHTML = marked.parse(text);
+      })
+      .catch(err => {
+        document.getElementById('content').innerHTML = "<p>Fehler beim Laden der Inhalte.</p>";
+      });
+  </script>
 
 </body>
 </html>
